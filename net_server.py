@@ -12,7 +12,7 @@ import socket
 
 #Creating socket "sock" binding it to address "addr" and begining listening process
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-addr = ("0.0.0.0", 12021)
+addr = ("lectura.cs.arizona.edu", 12021)
 sock.bind(addr)
 sock.listen(5)
 
