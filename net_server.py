@@ -12,22 +12,17 @@ import socket
 
 #Creating socket "sock" binding it to address "addr" and begining listening process
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-addr = ("lectura.cs.arizona.edu", 12021)
+addr = ("localhost", 12021)
 sock.bind(addr)
 sock.listen(5)
 
-while(1):
+while True:
     (connectedSock, clientAddress) = sock.accept()
     try:
-        msg = sock.recv(1024).decode()
+        msg = connectedSock.recv(1024).decode()
         msg += " Received message is " + len(msg.split()) + " words long."
         print(msg)
-        sock.sendall(msg.encode())
+        connectedSock.sendall(msg.encode())
         break
     except ConnectionAbortedError:
-        sock.close()
-
-
-
-
-
+        connectedSock.close()
