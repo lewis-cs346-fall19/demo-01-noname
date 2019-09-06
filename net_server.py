@@ -24,5 +24,5 @@ while True:
         print(msg)
         connectedSock.sendall(msg.encode())
         break
-    except ConnectionAbortedError:
+    except:
         connectedSock.close()
