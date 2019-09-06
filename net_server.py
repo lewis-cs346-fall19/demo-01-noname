@@ -18,8 +18,10 @@ sock.listen(5)
 
 while True:
     (connectedSock, clientAddress) = sock.accept()
+    print("Accepted connection")
     try:
         msg = connectedSock.recv(1024).decode()
+        print(msg)
         if not msg:
             break
         msg += " Received message is " + len(msg.split()) + " words long."
