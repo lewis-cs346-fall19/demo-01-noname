@@ -25,4 +25,4 @@ while True:
         connectedSock.sendall(msg.encode())
         break
     except:
-        sock.close()
+        connectedSock.close()
