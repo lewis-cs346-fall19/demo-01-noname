@@ -19,10 +19,10 @@ sock.listen(5)
 while True:
     (connectedSock, clientAddress) = sock.accept()
     try:
-        msg = connectedSock.recv(1024).decode()
+        msg = sock.recv(1024).decode()
         msg += " Received message is " + len(msg.split()) + " words long."
         print(msg)
-        connectedSock.sendall(msg.encode())
+        sock.sendall(msg.encode())
         break
     except:
-        connectedSock.close()
+        sock.close()
