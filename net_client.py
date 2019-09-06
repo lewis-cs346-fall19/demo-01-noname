@@ -20,7 +20,7 @@ while True:
     sock.sendall(msg.encode())
     new_msg = sock.recv(1024).decode()
     print(new_msg)
-    cont = input("Terminate program? Type 'y' for yes, 'n' for no")
+    cont = input("Terminate program? Type 'y' for yes, 'n' for no: ")
     if cont == "y":
         sock.close()
         exit()
