@@ -26,4 +26,4 @@ while True:
         print(newmsg)
         connectedSock.sendall(newmsg.encode())
     except:
-        sock.close()
+        connectedSock.close()
