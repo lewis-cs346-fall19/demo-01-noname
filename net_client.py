@@ -20,5 +20,8 @@ while True:
     sock.sendall(msg.encode())
     new_msg = sock.recv(1024).decode()
     print(new_msg)
-
+    cont = raw_input("Continue sending messages? y for Yes, n for No: ")
+    if cont == "n":
+        break
+        
 sock.close()
