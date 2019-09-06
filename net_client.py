@@ -14,15 +14,13 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 addr = ("localhost", 12021)
 sock.connect(addr)
 
-cont = True
-while(cont):
-    msg = raw_input("Send a message: ")
+while True:
+    msg = input("Send a message: ")
     print(msg)
     sock.sendall(msg.encode())
     new_msg = sock.recv(1024).decode()
     print(new_msg)
-    cont = raw_input("Terminate program? Type 'y' for yes, 'n' for no: ")
+    cont = input("Terminate program? Type 'y' for yes, 'n' for no")
     if cont == "y":
-        cont = False
         sock.close()
         exit()
