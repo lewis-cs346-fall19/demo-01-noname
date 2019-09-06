@@ -11,16 +11,17 @@ import socket
 
 #Creating socket "sock" binding it to address "addr" and begining listening process
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-addr = ("lectura.cs.arizona.edu", 12021)
+addr = ("localhost", 12021)
 sock.connect(addr)
 
-while(1):
-    msg = input()
+cont = True
+while(cont):
+    msg = input("Send a message")
     sock.sendall(msg.encode())
     new_msg = sock.recv(1024).decode()
     print(new_msg)
-
-
-
-
-
+    cont = input("Terminate program? Type 'y' for yes, 'n' for no")
+    if cont == "y":
+        cont = False
+        sock.close()
+        exit()
