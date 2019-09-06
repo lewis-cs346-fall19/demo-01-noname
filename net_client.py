@@ -16,12 +16,12 @@ sock.connect(addr)
 
 cont = True
 while(cont):
-    msg = input("Send a message: ")
+    msg = raw_input("Send a message: ")
     print(msg)
     sock.sendall(msg.encode())
     new_msg = sock.recv(1024).decode()
     print(new_msg)
-    cont = input("Terminate program? Type 'y' for yes, 'n' for no")
+    cont = raw_input("Terminate program? Type 'y' for yes, 'n' for no")
     if cont == "y":
         cont = False
         sock.close()
