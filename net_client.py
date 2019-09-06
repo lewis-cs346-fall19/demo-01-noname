@@ -16,7 +16,8 @@ sock.connect(addr)
 
 cont = True
 while(cont):
-    msg = input("Send a message")
+    msg = input("Send a message: ")
+    print(msg)
     sock.sendall(msg.encode())
     new_msg = sock.recv(1024).decode()
     print(new_msg)
