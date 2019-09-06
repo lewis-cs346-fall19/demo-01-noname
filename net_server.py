@@ -22,7 +22,7 @@ while True:
     try:
         msg = connectedSock.recv(1024).decode()
         print(msg)
-        newmsg = "Received message is " + len(msg.split()) + " words long."
+        newmsg = "Received message is " + str(len(msg.split())) + " words long."
         print(newmsg)
         connectedSock.sendall(newmsg.encode())
     except:
