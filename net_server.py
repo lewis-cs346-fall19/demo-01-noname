@@ -16,9 +16,10 @@ addr = ("localhost", 12021)
 sock.bind(addr)
 sock.listen(5)
 
+(connectedSock, clientAddress) = sock.accept()
+print("Accepted connection")
+    
 while True:
-    (connectedSock, clientAddress) = sock.accept()
-    print("Accepted connection")
     try:
         msg = connectedSock.recv(1024).decode()
         print(msg)
